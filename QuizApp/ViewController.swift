@@ -18,7 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     
     
-    var questionBank = [["4 + 2 = 7", "False"], ["5 + 3 = 8" , "True"], ["1 + 1 = 3","False"]]
+//    var questionBank = [["4 + 2 = 7", "False"], ["5 + 3 = 8" , "True"], ["1 + 1 = 3","False"]]
+    
+    var questionBank = [Questions(text: "4 + 2 = 7", answers: "False"),Questions(text: "5 + 3 = 8", answers: "True"),Questions(text: "1 + 1 = 3", answers: "False")]
+    
     var questionNumber = 0
     
     
@@ -32,13 +35,13 @@ class ViewController: UIViewController {
     
     @objc func updateUI() {
         
-        questions.text = questionBank[questionNumber][0]
+        questions.text = questionBank[questionNumber].text
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
         
         if questionNumber + 1 < questionBank.count {
-            
-            questions.text = questionBank[questionNumber][0]
+
+             questions.text = questionBank[questionNumber].text
     }
 
     }
@@ -48,7 +51,7 @@ class ViewController: UIViewController {
         
         let userInput = sender.currentTitle!
         
-        if userInput == questionBank[questionNumber][1]{
+        if userInput == questionBank[questionNumber].answers{
             sender.backgroundColor = UIColor.green
         }
         
