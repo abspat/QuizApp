@@ -16,6 +16,8 @@ struct QuizBrain {
     var questionNumber = 0
     
     
+    
+    
     func checkAnswer(_ userInput : String) -> Bool {
         
         if userInput == questionBank[questionNumber].answers

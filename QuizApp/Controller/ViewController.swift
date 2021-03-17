@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     @IBOutlet weak var trueButton: UIButton!
 
     @IBOutlet weak var falseButton: UIButton!
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
     
    
     var quizbrain = QuizBrain()
-    
+    var score = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -33,6 +35,7 @@ class ViewController: UIViewController {
     
     
     @objc func updateUI() {
+        
         
         questions.text = quizbrain.question()
         trueButton.backgroundColor = UIColor.clear
@@ -54,6 +57,8 @@ class ViewController: UIViewController {
         
         if checkFile {
             sender.backgroundColor = UIColor.green
+            score += 1
+            scoreLabel.text = " Score : \(score)"
         }
         
         else {
